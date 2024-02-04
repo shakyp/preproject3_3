@@ -17,8 +17,11 @@ public class User implements UserDetails {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "firstname")
+    private String firstname;
+
+    @Column(name = "lastname")
+    private String lastname;
 
     @Column(name = "age")
     private int age;
@@ -41,8 +44,9 @@ public class User implements UserDetails {
 
     }
 
-    public User(String name, int age, String username, String password) {
-        this.name = name;
+    public User(String firstname, String lastname, int age, String username, String password) {
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.age = age;
         this.username = username;
         this.password = password;
@@ -56,12 +60,12 @@ public class User implements UserDetails {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
     public int getAge() {
@@ -86,6 +90,14 @@ public class User implements UserDetails {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     @Override
