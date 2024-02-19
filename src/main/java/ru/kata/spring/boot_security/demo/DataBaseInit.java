@@ -34,10 +34,8 @@ public class DataBaseInit {
         roleRepository.save(adminRole);
         roleRepository.save(userRole);
 
-        User userFirst = new User("admin", "admin",  23, "admin@mail.ru", passwordEncoder.encode("admin"));
-        User userSecond = new User("user", "user", 17, "user@mail.ru", passwordEncoder.encode("user"));
-        userFirst.setRoles(Set.of(adminRole, userRole));
-        userSecond.setRoles(Set.of(userRole));
+        User userFirst = new User("admin", "admin", 23, "admin@mail.ru", passwordEncoder.encode("admin"), Set.of(adminRole, userRole));
+        User userSecond = new User("user", "user", 17, "user@mail.ru", passwordEncoder.encode("user"), Set.of(userRole));
 
         userRepository.save(userFirst);
         userRepository.save(userSecond);

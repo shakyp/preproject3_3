@@ -48,6 +48,13 @@ public class UserService implements UserDetailsService {
         return userRepository.findByUsername(username);
     }
 
+    public User findUserById(Long id) {
+        if (userRepository.findById(id).isEmpty()) {
+            throw new UsernameNotFoundException("User not found");
+        }
+        return userRepository.findById(id).get();
+    }
+
     @Transactional(readOnly = true)
     public List<User> listUsers() {
         return userRepository.findAll();
